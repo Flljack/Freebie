@@ -8,6 +8,11 @@
     <tr><td>Имя</td><td>Email</td></tr>
     @foreach (var item in Model)
     {
-        <tr><td>@item.Name</td><td>@item.Email</td></tr>
+    <tr>
+        <td>@item.Name</td>
+        <td>@item.Email</td>
+        <td>@item.About</td>
+        <td>@item.Passoword</td>
+    </tr>
     }
 </table>
