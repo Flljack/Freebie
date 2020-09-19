@@ -11,7 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Views\Home\Create.cshtml">
+    <Content Update="Views\Index\Create.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Promo\Index.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
   </ItemGroup>

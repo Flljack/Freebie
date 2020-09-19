@@ -4,31 +4,34 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Freebie.Models;
 
 namespace Freebie.Controllers
 {
-    public class HomeController : Controller
+    public class AuthController : Controller
     {
         private ApplicationContext db;
-        public HomeController(ApplicationContext context)
+        public AuthController(ApplicationContext context)
         {
             db = context;
         }
 
-        public async Task<IActionResult> Index()
+        [Route("login")]
+        public IActionResult Login()
         {
-            return View(await db.Users.ToListAsync());
+            return Content("login");
         }
 
-        public IActionResult Create()
+        [Route("signup")]
+        public IActionResult Signup()
         {
-            return View();
+            return Content("signup");
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(User user)
+        public async Task<IActionResult> Signup(User user)
         {
             db.Users.Add(user);
             await db.SaveChangesAsync();
