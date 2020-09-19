@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class Promo
+    public class Promo : IEntity
     {
         public int Id { get; set; }
         public string Title { get; set; }

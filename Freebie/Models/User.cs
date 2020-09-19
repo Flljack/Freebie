@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
 
-    public class User
+    public class User : IEntity
     {
         public int Id { get; set; }
         public int Role_id { get; set; }
