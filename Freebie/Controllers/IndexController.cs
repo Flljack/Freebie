@@ -6,20 +6,23 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Freebie.Models;
+using Freebie.Repositories;
 
 namespace Freebie.Controllers
 {
     public class IndexController : Controller
     {
         private ApplicationContext db;
-        public IndexController(ApplicationContext context)
+        private EfCoreUserRepository repository;
+        public IndexController(ApplicationContext context, EfCoreUserRepository efCoreUserRepository)
         {
             db = context;
+            repository = efCoreUserRepository;
         }
 
         public async Task<IActionResult> Index()
         {
-            return View(await db.Users.ToListAsync());
+            return View(await  repository.GetAll());
         }
 
         public IActionResult Create()
